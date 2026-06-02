@@ -1,0 +1,19 @@
+<svg viewBox="0 0 180 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vedryx-gradient" x1="6" y1="30" x2="30" y2="6" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6d5ef7"/>
+      <stop offset="1" stop-color="#00d2fd"/>
+    </linearGradient>
+    <linearGradient id="vedryx-glow" x1="18" y1="4" x2="18" y2="14" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#a2e7ff" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect x="1.5" y="1.5" width="33" height="33" rx="10" fill="url(#vedryx-gradient)" fill-opacity="0.14"/>
+  <rect x="1.5" y="1.5" width="33" height="33" rx="10" stroke="url(#vedryx-gradient)" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M9.5 25.5L18 10.5L26.5 25.5H22.4L18 16.8L13.6 25.5H9.5Z" fill="url(#vedryx-gradient)"/>
+  <path d="M16.2 9.6L18 7.2L19.8 9.6" stroke="url(#vedryx-glow)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="18" cy="6.8" r="2.1" fill="#00d2fd"/>
+  <circle cx="18" cy="6.8" r="4.2" fill="#00d2fd" fill-opacity="0.18"/>
+  <text x="46" y="24" fill="#f8fbff" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="18" font-weight="800">Vedryx</text>
+</svg>
