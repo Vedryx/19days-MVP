@@ -1,0 +1,13 @@
+<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vedryx-favicon-gradient" x1="6" y1="30" x2="30" y2="6" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6d5ef7"/>
+      <stop offset="1" stop-color="#00d2fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="36" height="36" rx="10" fill="#051424"/>
+  <rect x="1.5" y="1.5" width="33" height="33" rx="10" fill="url(#vedryx-favicon-gradient)" fill-opacity="0.14"/>
+  <rect x="1.5" y="1.5" width="33" height="33" rx="10" stroke="url(#vedryx-favicon-gradient)" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M9.5 25.5L18 10.5L26.5 25.5H22.4L18 16.8L13.6 25.5H9.5Z" fill="url(#vedryx-favicon-gradient)"/>
+  <circle cx="18" cy="6.8" r="2.1" fill="#00d2fd"/>
+</svg>
