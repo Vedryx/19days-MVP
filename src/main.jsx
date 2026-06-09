@@ -119,13 +119,13 @@ const buildTypes = [
   "Not sure yet",
 ];
 
-function Button({ children, variant = "primary", href, onClick, type = "button" }) {
+function Button({ children, variant = "primary", href, onClick, type = "button", disabled = false }) {
   const className = `button ${variant}`;
   const useButton = Boolean(onClick) || type === "submit";
 
   if (useButton) {
     return (
-      <button className={className} type={type} onClick={onClick}>
+      <button className={className} type={type} onClick={onClick} disabled={disabled}>
         {children}
       </button>
     );
@@ -154,6 +154,8 @@ function GlassCard({ children, className = "" }) {
 
 function CallbackModal({ open, onClose }) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (!open) {
@@ -178,6 +180,8 @@ function CallbackModal({ open, onClose }) {
   useEffect(() => {
     if (!open) {
       setSubmitted(false);
+      setSubmitting(false);
+      setError("");
     }
   }, [open]);
 
@@ -185,10 +189,36 @@ function CallbackModal({ open, onClose }) {
     return null;
   }
 
-  const handleSubmit = (event) => {
+  async function handleSubmit(event) {
     event.preventDefault();
-    setSubmitted(true);
-  };
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    setError("");
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("/api/callback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "Unable to submit the request right now.");
+      }
+
+      form.reset();
+      setSubmitted(true);
+    } catch (submitError) {
+      setError(submitError.message);
+      setSubmitted(false);
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div className="callback-modal" role="presentation" onClick={onClose}>
@@ -217,6 +247,10 @@ function CallbackModal({ open, onClose }) {
               <p>Vedryx may contact you by phone or email after reviewing your requirement.</p>
             </div>
             <form className="callback-form" onSubmit={handleSubmit}>
+              <label className="callback-field callback-field--trap" aria-hidden="true">
+                <span>Website</span>
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+              </label>
               <div className="callback-form-grid">
                 <label className="callback-field">
                   <span>Work email</span>
@@ -253,9 +287,10 @@ function CallbackModal({ open, onClose }) {
                 />
                 <em>Include your idea, target users, timeline, and what the first launch should prove.</em>
               </label>
-              <Button variant="primary" type="submit">
-                Request callback <ArrowRight size={16} />
+              <Button variant="primary" type="submit" disabled={submitting}>
+                {submitting ? "Submitting..." : <>Request callback <ArrowRight size={16} /></>}
               </Button>
+              {error && <p className="callback-form-error" role="alert">{error}</p>}
             </form>
           </>
         )}
