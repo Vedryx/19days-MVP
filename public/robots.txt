@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pulse.vedryx.com/sitemap.xml
+Sitemap: https://pulse.vedryxtech.com/sitemap.xml

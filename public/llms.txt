@@ -15,8 +15,8 @@ Vedryx Pulse helps non-technical founders launch market-ready products in 19 day
 
 ## Primary Pages
 
-- Home: https://pulse.vedryx.com/
+- Home: https://pulse.vedryxtech.com/
 
 ## Parent Brand
 
-Vedryx Pulse is a product of Vedryx (https://vedryx.com/), which also offers dedicated remote developer placement for established companies.
+Vedryx Pulse is a product of Vedryx (https://vedryxtech.com/), which also offers dedicated remote developer placement for established companies.
