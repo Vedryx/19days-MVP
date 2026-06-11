@@ -9,23 +9,27 @@ import Outcomes from "./components/sections/Outcomes.jsx";
 import Faq from "./components/sections/Faq.jsx";
 import Launch from "./components/sections/Launch.jsx";
 import CallbackModal from "./components/modals/CallbackModal.jsx";
+import { track } from "./lib/posthog.js";
 import "./styles.css";
 import "./animations.css";
 
 export default function App() {
   const [callbackOpen, setCallbackOpen] = useState(false);
-  const openCallback = () => setCallbackOpen(true);
+  const openCallback = (source = "unknown") => {
+    track("cta_book_click", { site: "vedryx-pulse-web", source });
+    setCallbackOpen(true);
+  };
 
   return (
     <main>
-      <Nav onLaunchClick={openCallback} />
-      <Hero onLaunchClick={openCallback} />
+      <Nav onLaunchClick={() => openCallback("nav")} />
+      <Hero onLaunchClick={() => openCallback("hero")} />
       <Protocol />
       <Why />
       <Comparison />
       <Outcomes />
       <Faq />
-      <Launch onLaunchClick={openCallback} />
+      <Launch onLaunchClick={() => openCallback("launch_section")} />
       <Footer />
       <CallbackModal open={callbackOpen} onClose={() => setCallbackOpen(false)} />
     </main>

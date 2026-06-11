@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ArrowRight, BadgeCheck, ChevronDown, X } from "lucide-react";
 import Button from "../ui/Button.jsx";
 import { buildTypes } from "../../data/index.js";
+import { track } from "../../lib/posthog.js";
 
 export default function CallbackModal({ open, onClose }) {
   const [submitted, setSubmitted] = useState(false);
@@ -41,6 +42,11 @@ export default function CallbackModal({ open, onClose }) {
 
     setError("");
     setSubmitting(true);
+    // PostHog: funnel event — never includes the form payload, only the build type.
+    track("form_submit_attempt", {
+      site: "vedryx-pulse-web",
+      build_type: payload.buildType || "unknown",
+    });
 
     try {
       const response = await fetch("/api/callback", {
@@ -56,9 +62,19 @@ export default function CallbackModal({ open, onClose }) {
 
       form.reset();
       setSubmitted(true);
+      track("form_submit_success", {
+        site: "vedryx-pulse-web",
+        build_type: payload.buildType || "unknown",
+      });
     } catch (submitError) {
       setError(submitError.message);
       setSubmitted(false);
+      track("form_submit_error", {
+        site: "vedryx-pulse-web",
+        build_type: payload.buildType || "unknown",
+        // No raw message — could leak server config detail.
+        kind: "client_or_api_error",
+      });
     } finally {
       setSubmitting(false);
     }
