@@ -1,4 +1,5 @@
 import { getDatabaseName, getMongoClient } from './_mongo.js'
+import { captureRouteError } from './_sentry.js'
 
 const REQUIRED_FIELDS = ['email', 'phone', 'summary']
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -81,6 +82,10 @@ export default async function handler(req, res) {
       code: error?.code,
       message: error?.message,
       stack: error?.stack,
+    })
+    await captureRouteError(req, error, {
+      source: 'vedryx-pulse-landing',
+      kind: error?.code === 'MONGODB_URI_MISSING' ? 'config' : 'runtime',
     })
     return res.status(500).json({ ok: false, message: 'Unable to submit the request right now.' })
   }
