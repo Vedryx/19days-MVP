@@ -75,7 +75,13 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ ok: true })
   } catch (error) {
-    console.error('Callback request failed', error)
+    // Tag config errors distinctly so Vercel logs / Sentry alerts triage in one click.
+    const tag = error?.code === 'MONGODB_URI_MISSING' ? '[CONFIG]' : '[RUNTIME]'
+    console.error(`${tag} Callback request failed (source=vedryx-pulse-landing)`, {
+      code: error?.code,
+      message: error?.message,
+      stack: error?.stack,
+    })
     return res.status(500).json({ ok: false, message: 'Unable to submit the request right now.' })
   }
 }
