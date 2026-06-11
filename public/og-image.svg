@@ -1,0 +1,49 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- TODO: placeholder OG until Design Lead ships final Pulse OG (per weekly sync 2026-06-10 plan, Wed). -->
+  <rect width="1200" height="630" fill="#05060c"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Pulse waveform motif -->
+  <g opacity="0.55" stroke-width="1.4" fill="none">
+    <path d="M-40 360 C 160 300, 280 420, 480 360 S 800 300, 1000 360 S 1240 420, 1280 360" stroke="#6d5ef7" stroke-opacity="0.55"/>
+    <path d="M-40 380 C 160 320, 280 440, 480 380 S 800 320, 1000 380 S 1240 440, 1280 380" stroke="#00d2fd" stroke-opacity="0.40"/>
+    <path d="M-40 400 C 160 340, 280 460, 480 400 S 800 340, 1000 400 S 1240 460, 1280 400" stroke="#aebfff" stroke-opacity="0.25"/>
+  </g>
+
+  <!-- Day counter orb -->
+  <g transform="translate(870 280)">
+    <circle r="180" stroke="#6d5ef7" stroke-opacity="0.30" stroke-width="2"/>
+    <circle r="130" stroke="#00d2fd" stroke-opacity="0.36" stroke-width="2"/>
+    <circle r="90" fill="#10162b" stroke="#aebfff" stroke-opacity="0.35" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle" fill="#eef0f8" font-family="Space Grotesk, Arial, sans-serif" font-size="72" font-weight="700">19</text>
+    <text x="0" y="50" text-anchor="middle" fill="#aebfff" font-family="Hanken Grotesk, Arial, sans-serif" font-size="20" font-weight="600">DAYS</text>
+  </g>
+
+  <!-- Brand & headline -->
+  <text x="86" y="112" fill="#eef0f8" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="700">Vedryx Pulse</text>
+  <text x="86" y="232" fill="#eef0f8" font-family="Space Grotesk, Arial, sans-serif" font-size="74" font-weight="700">Idea to launched</text>
+  <text x="86" y="318" fill="#eef0f8" font-family="Space Grotesk, Arial, sans-serif" font-size="74" font-weight="700">product in 19 days.</text>
+  <text x="86" y="380" fill="#aebfff" font-family="Hanken Grotesk, Arial, sans-serif" font-size="30" font-weight="600">Senior-led end-to-end builds for non-technical founders.</text>
+
+  <!-- Pill row -->
+  <g font-family="Hanken Grotesk, Arial, sans-serif" font-size="24" font-weight="700">
+    <rect x="86" y="450" width="180" height="52" rx="26" fill="#10162b" stroke="#2a3a7a"/>
+    <text x="118" y="484" fill="#c9d3ff">Strategy</text>
+    <rect x="282" y="450" width="158" height="52" rx="26" fill="#10162b" stroke="#2a3a7a"/>
+    <text x="314" y="484" fill="#c9d3ff">Design</text>
+    <rect x="456" y="450" width="172" height="52" rx="26" fill="#10162b" stroke="#2a3a7a"/>
+    <text x="488" y="484" fill="#c9d3ff">Engineer</text>
+    <rect x="644" y="450" width="120" height="52" rx="26" fill="#10162b" stroke="#2a3a7a"/>
+    <text x="676" y="484" fill="#c9d3ff">QA</text>
+    <rect x="780" y="450" width="148" height="52" rx="26" fill="#10162b" stroke="#2a3a7a"/>
+    <text x="812" y="484" fill="#c9d3ff">Launch</text>
+  </g>
+
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 260) rotate(143) scale(820 640)">
+      <stop stop-color="#1b2b70"/>
+      <stop offset=".45" stop-color="#081226"/>
+      <stop offset="1" stop-color="#05060c"/>
+    </radialGradient>
+  </defs>
+</svg>

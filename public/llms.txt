@@ -1,0 +1,22 @@
+# Vedryx Pulse
+
+Vedryx Pulse helps non-technical founders launch market-ready products in 19 days. Vedryx acts as the founder's entire technical department — strategy, design, engineering, QA, and launch are handled end-to-end with no CTO or dev team required.
+
+## Core Offering
+
+- 19-day end-to-end product build, from idea to live product
+- Senior-led engineering with ruthlessly scoped first release
+- Day-by-day delivery protocol: strategy & design (days 1–4), core engineering (5–15), refinement (16–17), final review (18), launch day (19)
+- Outcome-first approach focused on business goals over tech stack debates
+- Build types supported: SaaS platforms, mobile apps, AI-native products, digital marketplaces
+- Founder handoff includes a live product, launch assets, and an operating plan
+- Offline commercial contract between Vedryx and the founder
+- Ongoing iteration and growth support available after launch
+
+## Primary Pages
+
+- Home: https://pulse.vedryxtech.com/
+
+## Parent Brand
+
+Vedryx Pulse is a product of Vedryx (https://vedryxtech.com/), which also offers dedicated remote developer placement for established companies.
