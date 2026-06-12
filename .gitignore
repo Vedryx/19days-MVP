@@ -1,7 +1,17 @@
 node_modules/
+/node_modules
+
+# Build artifacts
 dist/
+dist-ssr/
+
+# Local secrets
 .env
 .env.local
+
+# Vercel local config
+.vercel/
+
+# Local agent / editor scratch
 .claude
 .agents
-/node_modules
