@@ -110,6 +110,11 @@ main {
   line-height: 1;
 }
 
+.logo-wordmark-suffix {
+  color: #c7ccd6;
+  font-weight: 800;
+}
+
 .site-footer-logo .logo-wordmark {
   font-size: 0.95rem;
 }
@@ -847,6 +852,9 @@ section {
 
 .faq-list {
   max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 details {
@@ -857,18 +865,14 @@ details {
   box-shadow: var(--shadow);
 }
 
-details + details {
-  margin-top: 14px;
-}
-
 summary {
   display: flex;
-  min-height: 62px;
+  min-height: 64px;
   cursor: pointer;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 0 22px;
+  padding: 8px 24px;
   color: var(--soft);
   font-weight: 800;
   list-style: none;
@@ -883,8 +887,9 @@ details[open] summary svg {
 }
 
 details p {
-  margin: -2px 22px 22px;
+  margin: 0 24px 24px;
   font-size: 0.92rem;
+  line-height: 1.65;
 }
 
 .launch {
