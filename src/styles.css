@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+/* Google Fonts is loaded non-blocking from index.html via the media-swap
+   pattern (rel="stylesheet" media="print" onload=this.media='all'). Keeping
+   it as a CSS @import made it render-blocking on mobile per PSI. Do NOT
+   re-add the @import here. */
 
 :root {
   color-scheme: dark;

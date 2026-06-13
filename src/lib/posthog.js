@@ -32,6 +32,14 @@ async function ensureInit() {
         capture_pageleave: true,
         autocapture: true,
         disable_session_recording: true,
+        // The PostHog project's remote-config endpoint (/array/:key/config)
+        // currently returns 404 on EU host — surfaces in Lighthouse
+        // "errors-in-console" (best-practices). We don't use feature flags
+        // or remote config yet, so disabling the decide/flags call is safe
+        // and silences the console errors.
+        advanced_disable_decide: true,
+        advanced_disable_flags: true,
+        advanced_disable_feature_flags: true,
         // Do not send sensitive form values via autocapture.
         // PostHog redacts inputs of type=password by default; this adds
         // a wider net for our callback form fields.

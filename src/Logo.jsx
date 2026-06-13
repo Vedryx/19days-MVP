@@ -22,9 +22,18 @@ export function LogoMark({ className = "", title = "Vedryx Pulse" }) {
 }
 
 export default function Logo({ className = "", href = "#top", showWordmark = true }) {
+  // a11y: the visible wordmark reads "Vedryx Pulse" while the previous
+  // aria-label said "Vedryx Pulse home". Lighthouse "label-content-name-mismatch"
+  // requires the accessible name to start with the visible text. Drop the
+  // aria-label and let the rendered text be the name when wordmark is shown.
+  // When the wordmark is hidden, fall back to an aria-label that matches the
+  // SVG's <title> so screen-readers still get a meaningful name.
+  const accessibleNameProps = showWordmark
+    ? {}
+    : { "aria-label": "Vedryx Pulse" };
   return (
-    <a className={`logo ${className}`.trim()} href={href} aria-label="Vedryx Pulse home">
-      <LogoMark className="logo-mark" />
+    <a className={`logo ${className}`.trim()} href={href} {...accessibleNameProps}>
+      <LogoMark className="logo-mark" title={showWordmark ? "" : "Vedryx Pulse"} />
       {showWordmark ? (
         <span className="logo-wordmark">
           Vedryx <span className="logo-wordmark-suffix">Pulse</span>
