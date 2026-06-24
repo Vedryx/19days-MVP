@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { initSentry } from "./lib/sentry.js";
 import { initPostHog, track } from "./lib/posthog.js";
+import { registerWebMcpTools } from "./lib/webmcp.js";
 
 // Fire-and-forget. No-op when VITE_SENTRY_DSN is unset.
 initSentry();
@@ -12,5 +13,7 @@ initPostHog().then(() => {
   // Funnel start: page reached the landing entrypoint.
   track("landing_view", { site: "vedryx-pulse-web" });
 });
+
+registerWebMcpTools();
 
 createRoot(document.getElementById("root")).render(<App />);
