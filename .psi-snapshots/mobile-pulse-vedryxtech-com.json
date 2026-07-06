@@ -1,7 +1,7 @@
 {
   "url": "https://pulse.vedryxtech.com/",
   "strategy": "mobile",
-  "fetched_at": "2026-06-29T13:12:33.877Z",
+  "fetched_at": "2026-07-06T12:54:32.909Z",
   "lighthouse_version": "13.4.0",
   "categories": {
     "performance": null,
@@ -23,8 +23,8 @@
       "display_value": null
     },
     "speed-index": {
-      "score": 0.96,
-      "display_value": "2.7 s"
+      "score": 0.95,
+      "display_value": "2.8 s"
     },
     "first-contentful-paint": {
       "score": 0.7,
